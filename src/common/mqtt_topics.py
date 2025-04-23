@@ -1,0 +1,5 @@
+REGISTER_TOPIC = "raspberrypi/register"
+COMMAND_TOPIC_PREFIX = "raspberrypi/commands/"
+ACKNOWLEDGE_TOPIC_PREFIX = "raspberrypi/acknowledge/"
+RESPONSE_TOPIC_PREFIX = "raspberrypi/responses/"
+GLOBAL_COMMAND_TOPIC = "raspberrypi/commands_global"

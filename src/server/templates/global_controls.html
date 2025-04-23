@@ -1,0 +1,36 @@
+<div class="control-buttons">
+    <button class="button header" onclick="startAllStreams()">Start All Streams</button>
+    <button class="button header stop-stream-btn" onclick="stopAllStreams()">Stop All Streams</button>
+    <button class="button header" onclick="showAllPictures()">Show Pictures</button>
+    <button class="button header" onclick="pingAllDevices()">Ping All Devices</button>
+    <button class="button header stop-stream-btn" onclick="shutdownAllDevices()">Shutdown All Devices</button>
+</div>
+
+<div class="auto-refresh" >
+    <div class="ping-refresh">
+        <label>
+            <input type="checkbox" id="autoRefreshCheckbox"> Enable Auto-Ping
+        </label>
+        <input type="number" id="refreshInterval" placeholder=30 list="defaultNumbers">
+    </div>
+    <div class="pictures-refresh">
+        <label>
+            <input type="checkbox" id="autoRefreshPicturesCheckbox"> Enable Auto-Pictures
+        </label>
+        <input type="number" id="refreshPicturesInterval" placeholder=60 list="defaultNumbers">
+    </div>    
+    <datalist id="defaultNumbers">
+      <option value="5"></option>
+      <option value="10"></option>
+      <option value="30" selected></option>
+      <option value="60"></option>
+      <option value="120"></option>
+    </datalist>
+
+    <div class="stream-display">
+        <label>
+            <input type="checkbox" id="showStreamCheckBox"> Display live-stream 
+        </label>
+        <button class="btn btn-success" onclick=" window.open('/stream_overview','_blank')"> Open streaming tab</button>
+    </div>
+</div>

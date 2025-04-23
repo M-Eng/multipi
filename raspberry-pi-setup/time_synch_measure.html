@@ -1,0 +1,52 @@
+<body>
+
+</body>
+
+<script>
+function generateGrid(h, w, t) {
+  const gridContainer = document.createElement('div');
+  gridContainer.style.display = 'grid';
+  gridContainer.style.gridTemplateRows = `repeat(${h}, 1fr)`;
+  gridContainer.style.gridTemplateColumns = `repeat(${w}, 1fr)`;
+  gridContainer.style.width = '100vw'; // Full viewport width
+  gridContainer.style.height = '100vh'; // Full viewport height
+  gridContainer.style.overflow = 'hidden'; // Prevent overflow
+
+  document.body.appendChild(gridContainer);
+
+  let cellNumber = 0;
+
+  for (let i = 0; i < h; i++) {
+    for (let j = 0; j < w; j++) {
+      const cell = document.createElement('div');
+      cell.style.backgroundColor = 'green';
+      cell.style.display = 'flex';
+      cell.style.justifyContent = 'center';
+      cell.style.alignItems = 'center';
+      cell.style.boxSizing = 'border-box'; // Include padding and border in the element's total width and height
+      cell.style.border = '1px solid black'; // Add a border to each cell
+      cell.textContent = ++cellNumber;
+      gridContainer.appendChild(cell);
+    }
+  }
+
+  let cellsChangedToRed = 0;
+  const cells = gridContainer.children;
+
+  const intervalId = setInterval(() => {
+    if (cellsChangedToRed < cells.length) {
+      cells[cellsChangedToRed].style.backgroundColor = 'red';
+      cellsChangedToRed++;
+    } else {
+      for (let i = 0; i < cells.length; i++) {
+        cells[i].style.backgroundColor = 'green';
+      }
+      cellsChangedToRed = 0;
+    }
+  }, t);
+
+  return intervalId;
+}
+
+generateGrid(90, 39, 10); // Creates a 5x5 grid with cells turning red every 1000ms
+</script>

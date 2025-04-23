@@ -1,0 +1,15 @@
+<div class="stream-container" data-device-id="{{ pi.id }}">
+        <h2>{{ pi.id }}</h2>
+            <!-- This is where the image will be displayed -->
+        {% if pi.streaming and pi.hls_stream_path %}
+            <video muted autoplay id='{{ pi.id }}_stream_video' width=450 class="video-js vjs-default-skin" controls>
+              <source
+                 src="{{pi.hls_stream_path}}"
+                 type="application/x-mpegURL">
+            </video>
+        
+          <script>
+          window['player_{{ pi.id }}'] = videojs('{{ pi.id }}_stream_video', {autoplay: true});
+          </script>  
+        {% endif %}
+</div>

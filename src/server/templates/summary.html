@@ -1,0 +1,23 @@
+<div class="summary">
+    <h2>Summary</h2>
+    <table>
+        <thead>
+          <tr>
+            <th>Number of devices</th>
+            <th>Online</th>
+            <th>Offline</th>
+            <th>Streaming</th>
+            <th>Data size</th>
+          </tr>
+        <thead>
+        <tbody>
+          <tr>
+            <td>{{ raspberry_pis|length }}</td>
+            <td>{{ raspberry_pis | selectattr("status", "equalto", "online") | list | length }}</td>
+            <td>{{ raspberry_pis | selectattr("status", "equalto", "offline") | list | length }}</td>
+            <td>{{ raspberry_pis | selectattr("streaming", "equalto", True) | list | length }}</td>
+            <td>{{ total_size }}</td>                   
+          </tr>
+        </tbody>
+    </table>
+</div>

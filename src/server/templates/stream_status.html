@@ -1,0 +1,21 @@
+<div class="streaming-status">
+    <h3>Streaming Status</h3>
+    <table> 
+        <thead>
+            <tr>
+                <th>Start</th>
+                <th>Duration</th>
+                <th>File Size</th>
+                <th>End</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <!-- if value is not not none: -->
+                <td class="stream_start_time">{{ pi.stream_start_time or '-' }}</td>
+                <td class="stream_duration">{{ pi.stream_duration or '-' }}</td>
+                <td class="stream_file_size">{{ pi.stream_file_size or '-' }}</td>
+                <td class="stream_end_time">{{ pi.stream_end_time or '-' }}</td>
+            </tr>
+    </table>
+</div>

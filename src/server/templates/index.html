@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='js/socket.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/button_control.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/image_overlay.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/auto_refresh.js') }}"></script>
+    <script src="https://vjs.zencdn.net/8.9.0/video.min.js"></script>
+    <script ser="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.15.0/videojs-contrib-hls.min.js"></script>
+
+    <link href="https://vjs.zencdn.net/8.9.0/video-js.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <div class="mainTitle"><h1>MultiPi: Status and Control Interface</h1></div>
+    
+    <!-- Add summarry containing global information, number of device how many online, offline, and streaming -->
+    {% include 'summary.html' %}
+
+    <!-- Add these buttons at the top or a suitable place on your page -->
+    {% include 'global_controls.html' %}
+    
+    <div class="raspberrylist" id="raspberrylist">
+        {% for pi in raspberry_pis %}
+
+        <!-- Add add pi dict to javascrip window -->
+        <script>window["{{ pi.id }}"] = {{ pi | tojson  }} </script>
+
+        {% include 'rpi_container.html' %}
+        {% endfor %}
+
+        {% if not raspberry_pis %}
+        <p>No Raspberry Pis are currently registered.</p>
+        {% endif %}
+
+    </div>
+
+
+    <div class="overlay" id="imageOverlay">
+        <img src="" alt="Enlarged Image" id="enlargedImage">
+    </div>
+</body>
+</html>

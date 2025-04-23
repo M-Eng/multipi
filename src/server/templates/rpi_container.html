@@ -1,0 +1,44 @@
+<div class="raspberry-container" data-device-id="{{ pi.id }}">
+    <div class="pi-info">
+        <h2>{{ pi.id }}</h2>
+        <span class="status-line"> <span> Status: <div class="status-box {{ pi.status }}">{{ pi.status }}</div> </span> <div class="ip_address">IP Address: {{ pi.ip_address }}</div> </span>
+        {% include 'stream_status.html' %}
+
+        <!-- <p>Stream started at: {{ pi.stream_start_time or 'Not yet started' }}</p> -->
+    
+        {% if pi.streaming %}
+        <button class="button buttonCont start-stream-btn" disabled onclick="startStream('{{ pi.id }}')">Start Stream</button>
+        <button class="button buttonCont stop-stream-btn"  onclick="stopStream('{{ pi.id }}')">Stop Stream</button>
+        {% else %}
+        <button class="button buttonCont start-stream-btn" onclick="startStream('{{ pi.id }}')">Start Stream</button>
+        <button class="button buttonCont stop-stream-btn"  disabled onclick="stopStream('{{ pi.id }}')">Stop Stream</button>
+        {% endif %}
+        <button class="button buttonCont" onclick="displayPicture('{{ pi.id }}')">Show Picture</button>
+        <button class="button buttonCont" onclick="pingDevice('{{ pi.id }}')">Ping</button>
+        <button class="button buttonCont stop-stream-btn" onclick="shutdownDevice('{{ pi.id }}')">Shutdown</button>
+    </div>
+    
+    <div class="pi-image">
+        <div id="{{ pi.id }}_image_container">
+            <!-- This is where the image will be displayed -->
+            <!-- {% if pi.streaming and pi.hls_stream_path %}
+            <video muted autoplay id='{{ pi.id }}_stream_video' width=350 class="video-js vjs-default-skin" controls>
+              <source
+                 src="http://10.90.43.2:5000/{{ pi.hls_stream_path}}"
+                 type="application/x-mpegURL">
+            </video>
+        
+          <script>
+          window['player_{{ pi.id }}'] = videojs('{{ pi.id }}_stream_video', {autoplay: true});
+
+          </script>  {% endif %}-->
+            {% if pi.last_frame_path %} 
+            <img id="{{ pi.id }}_image" src="{{ pi.last_frame_path }}" alt="Camera Image" style="display: block;">
+            {% else %}
+            <img id="{{ pi.id }}_image" src="" alt="Camera Image"  style="display: none;">
+            {% endif %}
+        </div>
+    </div>
+
+
+</div>

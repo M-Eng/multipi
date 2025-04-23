@@ -1,0 +1,381 @@
+:root {
+    --accent: #3dbafd;
+    --background: #ffffffd0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+.mainTitle {
+    max-width: 960px;
+    font-size: larger;
+    margin: auto; 
+    justify-content: center;
+    align-items: center; /* for vertical */
+}
+
+.raspberrylist {
+    max-width: 960px;
+    margin: auto; 
+    justify-content: center;
+    align-items: center; /* for vertical */
+}
+
+.control-buttons {
+    max-width: 960px;
+    margin: auto;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center; /* for vertical */
+    text-align: center;
+}
+
+.auto-refresh {
+    display: flex;
+    justify-content: space-between;
+    max-width: 960px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.auto-refresh h3 {
+    margin: 0;
+    padding: 0;
+}
+
+#refreshInterval {
+    margin-left: 10px;
+}
+#refreshPicturesInterval, #refreshInterval {
+    margin-left: 10px;
+    width: 60px;
+    text-align: center;
+    /* margin-right: 100px */
+}
+
+/* #autoRefreshCheckbox {
+    margin-left: 100px;
+
+} */
+
+.raspberry-container {
+    
+    position: relative; 
+    border: 4px solid var(--accent);
+    background-color: var(--background);
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    padding-top: 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    max-width: 960px;
+    min-height: 197px;
+}
+
+.raspberry-container:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.raspberry-container h2 {
+    position: absolute;
+    top: 0px;
+    left: -2px;
+    background-color: var(--accent);
+    margin: 0;
+    padding: 0px 30px;
+    padding-bottom: 6px;
+    border-top-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+.pi-info {
+    flex: 1; /* take up all available space */
+    min-width: 200px; /* adjust this value as per your layout requirements */
+    text-align: center;
+    max-width: 572px;
+}
+
+.status-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-left: 60px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+div.ip_address {
+    justify-content: right;
+    text-align: right;
+}
+
+/* .status-line */
+
+.video-js {
+    margin-left: 10px; /* spacing between the info and the image */
+}
+
+.pi-image img {
+    margin-left: 10px; /* spacing between the info and the image */
+    max-width: 350px; /* adjust this value as per your layout requirements */
+    height: auto;
+}
+
+/* Style for the overlay */
+.overlay {
+    display: none; /* hidden by default */
+    position: fixed; /* Stay in place */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+    z-index: 1000; /* Ensure it appears on top of everything else */
+}
+
+/* Style for the enlarged image */
+.overlay img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.status-box {
+    display: inline-block;
+    border-radius: 50px; /* Rounded corners */
+    padding: 2px;
+    margin: 0 5px;
+    color: white;
+    text-align: center;
+    width: 70px;
+}
+
+.status-box:first-letter {
+    text-transform: uppercase;
+}
+
+.online {
+    background-color: green;
+}
+
+.offline {
+    background-color: red;
+}
+
+.button {
+    background-color: white; /* Green */
+    border: 2px solid var(--accent);
+    color: black;
+    border-radius: 40px;
+    padding: 12px 26px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+
+  .button:hover {
+    background-color: var(--accent);
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+  .button:disabled {
+    background-color: #cccccc;
+    color: white;
+    border: 2px solid #cccccc;
+    cursor: not-allowed;
+  }
+
+  .button:disabled:hover {
+    background-color: #cccccc;
+    color: white;
+    border: 2px solid #cccccc;
+    cursor: not-allowed;
+  }
+
+  .buttonCont {
+    padding: 5px 10px;
+  }
+
+  .stop-stream-btn {
+    border: 2px solid red;
+  }
+
+  .stop-stream-btn:hover {
+    background-color: red;
+    color: white;
+  }
+
+  .summary {
+    position: relative; 
+    border: 4px solid var(--accent);
+    background-color: var(--background);
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 20px;
+    /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
+    max-width: 952px;
+    margin: 0 auto; 
+    justify-content: center;
+    align-items: center; /* for vertical */
+  }
+
+  .summary h2 {
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+    position: absolute;
+    top: 66px;
+    left: -68px;
+    background-color: var(--accent);
+    margin: 0;
+    padding: 3px 40px;
+    padding-bottom: 10px;
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+}
+
+.summary table { 
+    background:white;
+    border-radius:6px;
+    overflow:hidden;
+    width:80%;
+    margin:0 auto;
+    position:relative;
+    
+    *               { position:relative }
+    
+    td,th           { padding-left:8px}
+
+    thead tr th       { 
+    height:60px;
+    border: 2px solid var(--accent);
+    font-size:24px;
+    border-radius:6px;
+    }
+
+    tbody tr td      { 
+        height:60px;
+        border: 2px solid #909090;
+        font-size:24px;
+        border-radius:6px;
+    }
+    
+    tbody tr        { height:48px; border-bottom:1px solid #E3F1D5 ;
+    &:last-child  { border:0; }
+    }
+    
+    td,th 					{ text-align:left;
+        &.l 					{ text-align:right }
+        &.c 					{ text-align:center }
+        &.r 					{ text-align:center }
+    }
+}
+
+
+.streaming-status {
+    position: relative; 
+    /* border: 1px solid var(--accent); */
+    background-color: var(--background);
+    align-items: center;
+    border-radius: 20px;
+    display: flex;
+    margin: 0 0 0 0;
+}
+
+.streaming-status table {
+    background:white;
+    border-radius:6px;
+    overflow:hidden;
+    width:100%;
+    position:relative;
+    
+    thead tr th       { 
+    height:30px;
+    border: 2px solid var(--accent);
+    border-radius:6px;
+    text-align: center;
+    }
+
+    tbody tr td      { 
+        height:30px;
+        border: 2px solid #909090;
+        border-radius:6px;
+        text-align: center;
+    }
+
+}
+
+
+.streaming-status h3 {
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+    /* top: 66px;
+    left: -68px; */
+    margin-right: -35px;
+    margin-left: -40px;
+    text-align: center;
+    align-items: start;
+}
+
+.mainTitleStream {
+    font-size: larger;
+    margin: auto; 
+    justify-content: center;
+    align-items: center; /* for vertical */
+}
+
+#streamingGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    grid-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+.stream-container h2 {
+    position: absolute;
+    top: 0px;
+    left: -2px;
+    background-color: var(--accent);
+    margin: 0;
+    padding: 0px 30px;
+    padding-bottom: 0px;
+    border-top-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+.stream-container {
+    
+    position: relative; 
+    border: 4px solid var(--accent);
+    background-color: var(--background);
+    align-items: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 10px;
+    padding-top: 40px;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    max-width: 960px;
+    min-height: 0px;
+    justify-content: center;
+}
+
+.stream-container .video-js {
+    margin-left: 0px; /* spacing between the info and the image */
+}

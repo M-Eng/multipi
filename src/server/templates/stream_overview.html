@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://vjs.zencdn.net/8.9.0/video.min.js"></script>
+    <script ser="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.15.0/videojs-contrib-hls.min.js"></script>
+
+    <link href="https://vjs.zencdn.net/8.9.0/video-js.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <div class="mainTitleStream"><h1>MultiPi: Streams Monitoring</h1></div>
+    
+    <div class="streamingGrid" id="streamingGrid">
+        {% for pi in raspberry_pis %}
+        {% include 'stream_container.html' %}
+        {% endfor %}
+
+        {% if not raspberry_pis %}
+        <p>No Raspberry Pis are currently registered.</p>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
