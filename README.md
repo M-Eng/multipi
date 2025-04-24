@@ -126,9 +126,10 @@ If you found this project useful, please consider citing it as follows:
 
 ```bibtex
 @misc{multipi,
-    author = {Engilber, M.},
+    author = {Engilberge, Martin},
     title = {MultiPi: Synchronized Multi-Camera Video Acquisition},
-    year = {2024},
+    url = {https://github.com/M-Eng/multipi},
+    year = {2025},
 }
 ```
 
